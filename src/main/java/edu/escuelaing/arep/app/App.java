@@ -1,4 +1,4 @@
-package edu.escuelaing.arep.AWS.app;
+package edu.escuelaing.arep.app;
 
 /**
  * Hello world!
