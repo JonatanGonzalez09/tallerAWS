@@ -4,6 +4,12 @@ import edu.escuelaing.arep.app.annotation.Web;
 
 public class Operacion{
 
+    /**
+     * Funcione que multiplica dos numeros.
+     * @param num1 numero para multiplicar.
+     * @param num2 numero para multiplicar.
+     * @return la multiplicacion de los dos numeros.
+     */
     @Web("multiplicacion")
     public static String multiplicacion(String num1, String num2) {
           System.out.println("num1...."+num1);

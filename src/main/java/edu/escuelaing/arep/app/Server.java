@@ -10,16 +10,23 @@ import java.util.logging.Logger;
 
 import edu.escuelaing.arep.app.threads.ThreadPool;
 
+/**
+ * Servidor que ejecutara la respuesta.
+ */
 public class Server {
     
     ExecutorService executor = Executors.newFixedThreadPool(10);
 
     /**
-     * Class constructor. Set attributes values.
+     * Constructor de la clase servidor.
      */
     public Server() {
     }
 
+    /**
+     * Metodo principal para ejecutar el programa.
+     * @param args parametros que necesite el main.
+     */
     public static void main(String[] args) {
         ExecutorService es = Executors.newFixedThreadPool(10);
         while (true) {
@@ -48,6 +55,10 @@ public class Server {
         }
     }
 
+    /** 
+     * Devuelve el puerto por el que se correra la aplicacion.
+     * @return
+     */
     public static int getPort() {
         if (System.getenv("PORT") != null) {
             return new Integer(System.getenv("PORT"));

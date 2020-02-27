@@ -9,10 +9,14 @@ import java.io.*;
 import java.net.*;
 
 /**
- *
- * @author jonatan.gonzalez
+ * Cliente de AWS a Heroku que tiene el link quemado.
  */
 public class ClienteFromAWSToHeroku {
+    /**
+     * Programa principal para ejecutar el cliente.
+     * @param args parametros que necesite el programa principal.
+     * @throws Exception En caso de que no se pueda ejecutar.
+     */
     public static void main(String[] args) throws Exception { 
       URL url = new URL(args[0]); 
       try (BufferedReader reader = new BufferedReader(

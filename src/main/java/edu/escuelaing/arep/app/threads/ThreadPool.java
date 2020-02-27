@@ -15,21 +15,24 @@ import java.util.logging.Logger;
 import java.lang.reflect.Method;
 import edu.escuelaing.arep.app.annotation.Web;
 
-
 /**
- * La clase AnswerRequest implementa Runnable para resolver las peticiones
- * hechas por un cliente de manera concurrene.
- *
- * @author Jonathan Prieto
+ * Clase que resuelve peticiones concurrentemente.
  */
 public class ThreadPool extends Thread {
 
     private Socket clientSocket;
 
+    /**
+     * Constructor de la clase ThreadPool.
+     * @param clientSocket socket del cliente.
+     */
     public ThreadPool(Socket clientSocket) {
         this.clientSocket = clientSocket;
     }
 
+    /**
+     * Realiza cuando el hilo se esta ejecutando
+     */
     @Override
     public void run() {
         String contenido;
@@ -97,6 +100,13 @@ public class ThreadPool extends Thread {
         }
     }
 
+    /**
+     * Muestra la respuesta para cuando la peticion es un html.
+     * @param ruta path de la peticion del usuario. 
+     * @return Retorna la respuesta que se mostrara al usuario.
+     * @throws FileNotFoundException En caso de que no encuentre el recurso.
+     * @throws IOException En caso de que la entrada este mal estructurada.
+     */
     public static String respuestaHtml(String ruta) throws FileNotFoundException, IOException {
         FileReader archivo = new FileReader("./resources/" + ruta);
         BufferedReader buffered = new BufferedReader(archivo);
@@ -110,6 +120,12 @@ public class ThreadPool extends Thread {
         return respuesta;
     }
 
+    /**
+     * Muestra la respuesta para cuando la peticion es un png.
+     * @param ruta path de la peticion del usuario. 
+     * @return Retorna la respuesta que se mostrara al usuario.
+     * @throws IOException En caso de que la entrada este mal estructurada.
+     */
     public static byte[] respuestaImagen(String ruta) throws IOException {
         File imagen = new File("resources/" + ruta);
         FileInputStream inputImage = new FileInputStream(imagen.getPath());
@@ -118,6 +134,15 @@ public class ThreadPool extends Thread {
         return pagina;
     }
 
+    /**
+     * Muestra la respuesta para cuando la peticion se hace de manera dinamica (multiplicacion).
+     * @param nombClase clase a la cual va ha recurrir para dar respuesta.
+     * @param metodo el metodo que va ha utilizar para dar respuesta.
+     * @param num1 primer numero a procesar en la peticion (multiplicar).
+     * @param num2 segundo numero a procesar en la peticion (multiplicar).
+     * @return Retorna la respuesta que se mostrara al usuario con la operacion entre los dos numeros. 
+     * @throws Exception
+     */
     public static String htmlConParametros(String nombClase, String metodo,String num1, String num2) throws Exception {
         String solucion = "";
         Class clase = Class.forName("edu.escuelaing.arep.app.operacion."+ nombClase);
