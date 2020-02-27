@@ -1,23 +1,17 @@
 package edu.escuelaing.arep.app;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import edu.escuelaing.arep.app.threads.ThreadPool;
 
 public class Server {
-	
-	private int puerto=getPort();
-	private Socket clientSocket;
-	private static ServerSocket servSocket;
-    private String serverMessage;
-
+    
     ExecutorService executor = Executors.newFixedThreadPool(10);
 
     /**
@@ -26,51 +20,32 @@ public class Server {
     public Server() {
     }
 
-    /**
-     * This method starts the server
-     */
-    public void startServer(){
+    public static void main(String[] args) {
+        ExecutorService es = Executors.newFixedThreadPool(10);
         while (true) {
+            ServerSocket serverSocket = null;
             try {
-                System.out.println("Estableciendo la conexión...");
-                this.clientSocket = this.servSocket.accept();
-
-                System.out.println("Cliente establecido...");
-
-                BufferedReader entrada = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream()));
-
-                String path = this.getRequest(entrada);
-
-                OutputStream os = clientSocket.getOutputStream();
-                boolean running = true;
-
-                while(running){
-                    this.clientSocket = this.servSocket.accept();
-                    executor.execute(RequesHandler(this.clientSocket));
-                }
-            }catch(IOException e){
-                System.out.println(e.getMessage());
+                serverSocket = new ServerSocket(getPort());
+            } catch (IOException e) {
+                System.err.println("Could not listen on port: " + getPort());
+                System.exit(1);
+            }
+            Socket clientSocket = null;
+            try {
+                System.out.println("Listo para recibir ... ");
+                clientSocket = serverSocket.accept();
+            } catch (IOException e) {
+                System.err.println("Accept failed.");
+                System.exit(1);
+            }
+            ThreadPool ar = new ThreadPool(clientSocket);
+            es.execute(ar);
+            try {
+                serverSocket.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }
-
-    public String getRequest(BufferedReader entrada) {
-
-        boolean notExit = true;
-        String path = null;
-        try {
-            while ((this.serverMessage = entrada.readLine()) != null && notExit) {
-
-                if (this.serverMessage.contains("GET")) {
-                    String[] dir = this.serverMessage.split(" ");
-                    path = dir[1];
-                    notExit = false;
-                }
-            }
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-        return path;
     }
 
     public static int getPort() {
