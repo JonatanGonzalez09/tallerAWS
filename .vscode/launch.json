@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ClienteFromAWSToHeroku",
+            "request": "launch",
+            "mainClass": "ClienteFromAWStoHeroku.ClienteFromAWSToHeroku",
+            "projectName": "appAWS"
+        }
+    ]
+}
