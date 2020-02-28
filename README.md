@@ -22,7 +22,7 @@ También se busca que un cliente haga múltiples solicitudes al servidor tanto e
 
 ## Descripción en Latex ##
 En el siguiente vinculo encontrara el respectivo PDF de la descripción del diseño desarrollado en LaTeX.
-[Click](LATEX)
+[Click](https://github.com/JonatanGonzalez09/tallerAWS/blob/master/Imagenes/Laboratorio_5.pdf)
 
 ## Documentación Javadoc ##
 Para generar la documentación javadoc, fue necesario ejecutar los siguientes comandos:
