@@ -61,5 +61,8 @@ public class ClienteFromAWSToHeroku extends Thread {
         System.err.println(x);
       }
     }
+    for (int i = 0; i<listaClientes.size();i++){
+      listaClientes.get(i).join();
+    }
   }
 }
