@@ -27,6 +27,8 @@ En el siguiente vinculo encontrara el respectivo PDF de la descripción del dise
 ## Entregas ##
 Se mostrara la creación de una una máquina virtual EC2 en AWS como evidencia del [**trabajo en clase**](https://github.com/JonatanGonzalez09/tallerAWS/blob/master/resources/Creando%20una%20m%C3%A1quina%20virtual%20EC2%20en%20AWS.pdf).
 
+Se mostraran los [**experimentos realizados**](https://github.com/JonatanGonzalez09/tallerAWS/blob/master/resources/Experimentos.pdf) en la maquina virtual con la clase _ClienteFromAWStoHeroku_, donde se mostrara las multiples solicitudes que hace el cliente. 
+
 ## Documentación Javadoc ##
 Para generar la documentación javadoc, fue necesario ejecutar los siguientes comandos:
 
