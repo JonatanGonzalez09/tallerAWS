@@ -22,7 +22,10 @@ También se busca que un cliente haga múltiples solicitudes al servidor tanto e
 
 ## Descripción en Latex ##
 En el siguiente vinculo encontrara el respectivo PDF de la descripción del diseño desarrollado en LaTeX.
-[Click](https://github.com/JonatanGonzalez09/tallerAWS/blob/master/Imagenes/Laboratorio_5.pdf)
+[**Click**](https://github.com/JonatanGonzalez09/tallerAWS/blob/master/Imagenes/Laboratorio_5.pdf)
+
+## Entregas ##
+Se mostrara la creación de una una máquina virtual EC2 en AWS como evidencia del [**trabajo en clase**](https://github.com/JonatanGonzalez09/tallerAWS/blob/master/resources/Creando%20una%20m%C3%A1quina%20virtual%20EC2%20en%20AWS.pdf).
 
 ## Documentación Javadoc ##
 Para generar la documentación javadoc, fue necesario ejecutar los siguientes comandos:
@@ -78,7 +81,6 @@ _Se puede observar el menú principal de la aplicación donde se mostrara tanto 
  _Da como resultado_
  
  ![](https://github.com/JonatanGonzalez09/tallerAWS/blob/master/Imagenes/resultado.jpeg)
- 
 
 ## Licencia ##
 Este proyecto cuenta con la licencia [**GNU General Public License v3.0**](https://github.com/JonatanGonzalez09/tallerAWS/blob/master/LICENSE)
